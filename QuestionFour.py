@@ -15,8 +15,8 @@ class OrderedList:
     """
     def __init__(self):
         self.head = None
-        self.undoStack = []
-        self.redoStack = []
+        self.undoStack = [] # store undo operations
+        self.redoStack = [] # store redo operations
 
     def insert(self, value):
         """Insets value into the list in an orderly manner
@@ -124,23 +124,3 @@ class OrderedList:
         elif toReDo[0] == 'delete':
             self.delete(toReDo[1])
         self.redoStack.pop()
-        
-             
-newOne = OrderedList()
-newOne.insert(3)
-newOne.insert(5)
-newOne.insert(1)
-print(newOne.print())
-print(newOne.undoStack)
-print("Calling undo")
-newOne.undo()
-print(newOne.print())
-print(newOne.undoStack)
-print("Calling undo")
-newOne.undo()
-print(newOne.print())
-print(newOne.undoStack)
-print("Calling undo")
-newOne.undo()
-print(newOne.print())
-print(newOne.undoStack)
